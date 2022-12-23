@@ -27,7 +27,7 @@ pwd = os.getcwd().replace('\\','/')
 #
 
 
-engine = f"{pwd}/metadata/index.html"
+engine = "https://kinite-gp.github.io"
 user = getuser()
 
 
@@ -78,11 +78,6 @@ class MainWindow(QMainWindow):
         self.setStatusBar(self.status)
         
         
-
-        
-        
-
-        
         #
         # nav bar builder (for icons and btn)
         #
@@ -92,6 +87,10 @@ class MainWindow(QMainWindow):
         navtb.setFloatable(False)
         navtb.setMovable(False)
         self.addToolBar(navtb)
+        
+        #
+        # datetab builder
+        #
         
         
         datetb = QToolBar('tools')
@@ -212,17 +211,6 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Browthon")
         
         
-        
-        
-        
-        
-        
-
-        
-    
-        
-    
-
     #
     # new tab builder
     #    
@@ -336,7 +324,10 @@ class MainWindow(QMainWindow):
         self.browser.page().printToPdf(f"C:/Users/{user}/Downloads/{self.browser.page().title()}.pdf")
         QMessageBox.information(self, 'info', f'exporting file to:\n"C:/Users/{user}/Downloads/{self.browser.page().title()}.pdf"')
 
-        
+    
+    #
+    # sea my github :)
+    #
         
         
     def about(self):
