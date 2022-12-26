@@ -18,7 +18,9 @@ import os
 import sys
 from getpass import getuser
 
+
 pwd = os.getcwd().replace('\\','/')
+
 
 
 
@@ -27,7 +29,7 @@ pwd = os.getcwd().replace('\\','/')
 #
 
 
-engine = "https://kinite-gp.github.io"
+engine = "https://search.brave.com"
 user = getuser()
 
 
@@ -61,6 +63,7 @@ class MainWindow(QMainWindow):
         
         
         self.tabs = QTabWidget()
+        self.tabs.setStyleSheet("background-color: #222531;color:white;")
         self.tabs.setDocumentMode(True)
         self.tabs.tabBarDoubleClicked.connect(self.tab_open_doubleclick)
         self.tabs.currentChanged.connect(self.current_tab_changed)
@@ -75,6 +78,7 @@ class MainWindow(QMainWindow):
         
         
         self.status = QStatusBar()
+        self.status.setStyleSheet("background-color: #222531;color:white;")
         self.setStatusBar(self.status)
         
         
@@ -84,6 +88,7 @@ class MainWindow(QMainWindow):
         
         
         navtb = QToolBar("Navigation")
+        navtb.setStyleSheet("background-color: #222531;")
         navtb.setFloatable(False)
         navtb.setMovable(False)
         self.addToolBar(navtb)
@@ -94,10 +99,15 @@ class MainWindow(QMainWindow):
         
         
         datetb = QToolBar('tools')
+        datetb.setStyleSheet("background-color: #222531;")
         datetb.setFloatable(False)
         datetb.setMovable(False)
         datetb.setGeometry(0,0,100,20)
         self.addToolBar(Qt.LeftToolBarArea,datetb)
+        
+
+
+
         
 
 
@@ -109,7 +119,7 @@ class MainWindow(QMainWindow):
         about_btn = QAction('about', self)
         about_btn.setIcon(QIcon('metadata/about.png'))
         about_btn.setStatusTip("about developer")
-        about_btn.triggered.connect(self.about)
+        about_btn.triggered.connect(lambda : self.add_new_tab(qurl=QUrl("https://github.com/kinite-gp"),label="kinite-gp"))
         
         
         
@@ -170,6 +180,7 @@ class MainWindow(QMainWindow):
         
         
         self.urlbar = QLineEdit()
+        self.urlbar.setStyleSheet("background: #4B5062;color:white;")
         self.urlbar.setStatusTip('url site')
         self.urlbar.returnPressed.connect(self.navigate_to_url)
         navtb.addWidget(self.urlbar)
@@ -211,6 +222,121 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Browthon")
         
         
+        #
+        # pin panel builder
+        #
+        
+        
+        drbios = QAction("drbios",self)
+        drbios.setIcon(QIcon("metadata/pinboard/ico/drbios.png"))
+        drbios.setStatusTip("drbios site")
+        drbios.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://dr-bios.com/fa/"),label="drbios"))
+        datetb.addAction(drbios)
+        
+        sabzlearn = QAction("sabzlearn",self)
+        sabzlearn.setIcon(QIcon("metadata/pinboard/ico/sabzlearn.png"))
+        sabzlearn.setStatusTip("sabzlearn site")
+        sabzlearn.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://sabzlearn.ir"),label="sabzlearn"))
+        datetb.addAction(sabzlearn)
+        
+        arduino_btn = QAction("arduino", self)
+        arduino_btn.setIcon(QIcon("metadata/pinboard/ico/arduino.png"))
+        arduino_btn.setStatusTip("arduino site")
+        arduino_btn.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://www.arduino.cc"),label="arduino.cc"))
+        datetb.addAction(arduino_btn)
+        
+        github_btn = QAction("github",self)
+        github_btn.setIcon(QIcon("metadata/pinboard/ico/github.png"))
+        github_btn.setStatusTip("github site")
+        github_btn.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://github.com"),label="github"))
+        datetb.addAction(github_btn)
+        
+        gmail_btn = QAction("gmail",self)
+        gmail_btn.setIcon(QIcon("metadata/pinboard/ico/gmail.png"))
+        gmail_btn.setStatusTip("gmail login")
+        gmail_btn.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://accounts.google.com"),label="gmail"))
+        datetb.addAction(gmail_btn)
+
+        ycombinator = QAction("hacker news",self)
+        ycombinator.setIcon(QIcon("metadata/pinboard/ico/hackernews.png"))
+        ycombinator.setStatusTip("hacker news site")
+        ycombinator.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://news.ycombinator.com"),label="ycombinator"))
+        datetb.addAction(ycombinator)
+
+        icons8 = QAction("icon8",self)
+        icons8.setIcon(QIcon("metadata/pinboard/ico/icon8.png"))
+        icons8.setStatusTip("icon8 site")
+        icons8.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://icons8.com"),label="icons8"))
+        datetb.addAction(icons8)
+
+        imdb = QAction("imdb",self)
+        imdb.setIcon(QIcon("metadata/pinboard/ico/imdb.png"))
+        imdb.setStatusTip("imdb site")
+        imdb.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://www.imdb.com"),label="imdb"))
+        datetb.addAction(imdb)
+
+        instagram = QAction("instagram",self)
+        instagram.setIcon(QIcon("metadata/pinboard/ico/instagram.png"))
+        instagram.setStatusTip("instagram site")
+        instagram.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://www.instagram.com"),label="instagram"))
+        datetb.addAction(instagram)
+
+        kali = QAction("kali",self)
+        kali.setIcon(QIcon("metadata/pinboard/ico/kalilinux.png"))
+        kali.setStatusTip("kali site")
+        kali.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://www.kali.org"),label="kali"))
+        datetb.addAction(kali)
+
+        python = QAction("python",self)
+        python.setIcon(QIcon("metadata/pinboard/ico/python.png"))
+        python.setStatusTip("python site")
+        python.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://www.python.org"),label="python"))
+        datetb.addAction(python)
+        
+        
+        soundcloud = QAction("soundcloud",self)
+        soundcloud.setIcon(QIcon("metadata/pinboard/ico/soundcloud.png"))
+        soundcloud.setStatusTip("soundcloud site")
+        soundcloud.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://soundcloud.com"),label="soundcloud"))
+        datetb.addAction(soundcloud)
+        
+        telegram = QAction("telegram",self)
+        telegram.setIcon(QIcon("metadata/pinboard/ico/telegram.png"))
+        telegram.setStatusTip("telegram site")
+        telegram.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://web.telegram.org"),label="telegram"))
+        datetb.addAction(telegram)
+        
+        tempmail = QAction("temp mail",self)
+        tempmail.setIcon(QIcon("metadata/pinboard/ico/tempmail.png"))
+        tempmail.setStatusTip("temp mail site")
+        tempmail.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://temp-mail.org/en/"),label="temp mail"))
+        datetb.addAction(tempmail)
+        
+        twitter = QAction("twitter",self)
+        twitter.setIcon(QIcon("metadata/pinboard/ico/twitter.png"))
+        twitter.setStatusTip("twitter site")
+        twitter.triggered.connect(lambda: self.add_new_tab(qurl=QUrl("https://twitter.com"),label="twitter"))
+        datetb.addAction(twitter)
+        
+        wiki = QAction("wiki",self)
+        wiki.setIcon(QIcon("metadata/pinboard/ico/wiki.png"))
+        wiki.setStatusTip("wiki site")
+        wiki.triggered.connect(lambda: self.add_new_tab(qurl=QUrl(""),label="wiki"))
+        datetb.addAction(wiki)
+        
+        youtube = QAction("youtube",self)
+        youtube.setIcon(QIcon("metadata/pinboard/ico/youtbe.png"))
+        youtube.setStatusTip("youtube site")
+        youtube.triggered.connect(lambda: self.add_new_tab(qurl=QUrl(""),label="youtube"))
+        datetb.addAction(youtube)
+        
+
+        
+        
+        
+
+        
+        
     #
     # new tab builder
     #    
@@ -223,6 +349,7 @@ class MainWindow(QMainWindow):
             qurl = QUrl(engine)
  
         self.browser = QWebEngineView()
+        self.browser.setStyleSheet("background-color: #222531;color:white;")
         self.browser.setUrl(qurl)
         i = self.tabs.addTab(self.browser, label)
         self.tabs.setCurrentIndex(i)
@@ -325,14 +452,7 @@ class MainWindow(QMainWindow):
         QMessageBox.information(self, 'info', f'exporting file to:\n"C:/Users/{user}/Downloads/{self.browser.page().title()}.pdf"')
 
     
-    #
-    # sea my github :)
-    #
-        
-        
-    def about(self):
-        self.add_new_tab(QUrl("https://github.com/kinite-gp"), 'kinite_gp')
-        self.browser.page().runJavaScript("submitted()",self.ready)
+
         
        
 #
@@ -341,6 +461,7 @@ class MainWindow(QMainWindow):
 
 
 app = QApplication(sys.argv)
+app.setStyle('Fusion')
 app.setApplicationName("Browthon")
 window = MainWindow()
 app.exec_()
