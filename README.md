@@ -14,8 +14,8 @@
 
 ## Install
 ```bash
-git clone link
-cd link
+git clone [link](https://github.com/kinite-gp/Browthon-project.git)
+cd Browthon-project
 pip3 install -r requirements.txt
 python3 browthon.py 
 ```
