@@ -8,7 +8,8 @@
 
 ## Operating Systems Tested
 - Windows 10
-
+- KeX-win
+- KaliLinux 
 - The rest will be tested soon.
 
 
