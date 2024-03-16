@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="image">
+    <file>meta/back.png</file>
+    <file>meta/forward.png</file>
+    <file>meta/github.png</file>
+    <file>meta/home.png</file>
+    <file>meta/ico.png</file>
+    <file>meta/new.png</file>
+    <file>meta/pdf.png</file>
+    <file>meta/reload.png</file>
+    <file>meta/setting.png</file>
+    <file>meta/stop.png</file>
+  </qresource>
+</RCC>
