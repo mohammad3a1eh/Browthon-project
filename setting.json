@@ -1,0 +1,13 @@
+{
+    "home_url": "https://google.com/",
+    "proxy": {
+        "status": false,
+        "host": "127.0.0.1",
+        "port": 2081,
+        "login": {
+            "status": false,
+            "user": "",
+            "pass": ""
+        }
+    }
+}
