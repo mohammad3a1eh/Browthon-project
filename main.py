@@ -222,7 +222,6 @@ if __name__ == "__main__":
             "QTWEBENGINE_CHROMIUM_FLAGS"
         ] = "--blink-settings=darkMode=4,darkModeImagePolicy=2"
         app = QApplication(sys.argv + ['-platform', 'windows:darkmode=1'])
-        app.setStyleSheet(stylesheet[theme]["tooltip"])
     else:
         theme = "light"
         app = QApplication(sys.argv)
